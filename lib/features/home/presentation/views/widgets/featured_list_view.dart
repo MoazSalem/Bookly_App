@@ -7,7 +7,7 @@ class FeaturedListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.only(left: 18.0, right: 18.0, bottom: 40.0),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * .3,
         child: ListView.builder(
