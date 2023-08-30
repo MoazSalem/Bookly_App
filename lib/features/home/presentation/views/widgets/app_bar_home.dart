@@ -8,7 +8,7 @@ class AppBarHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 40.0),
+      padding: const EdgeInsets.only(left: 26.0, right: 26.0, top: 40.0, bottom: 25.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,7 +19,7 @@ class AppBarHome extends StatelessWidget {
             borderRadius: BorderRadius.circular(24),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SvgPicture.asset(AssetsData.search, height: 28, semanticsLabel: 'bookly logo'),
+              child: SvgPicture.asset(AssetsData.search, height: 28, semanticsLabel: 'search icon'),
             ),
           )
         ],
