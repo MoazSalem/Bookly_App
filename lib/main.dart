@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'features/presentation/constants.dart';
-import 'features/presentation/views/splash_body.dart';
+import 'features/constants.dart';
+import 'features/splash/presentation/views/splash_body.dart';
 
 void main() {
   runApp(const BooklyApp());

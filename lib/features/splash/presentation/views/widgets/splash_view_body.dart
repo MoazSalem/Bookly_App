@@ -1,6 +1,9 @@
-import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:bookly/core/utils/assets.dart';
+import 'package:bookly/features/constants.dart';
+import 'package:bookly/features/home/presentation/views/home_body.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -16,9 +19,14 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
-    controller.forward();
+    animateLogo();
+    navigateHome();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
   }
 
   @override
@@ -42,5 +50,17 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
             );
           }),
     );
+  }
+
+  void animateLogo() {
+    controller = AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    animation = Tween<double>(begin: 0.0, end: 1.0).animate(controller);
+    controller.forward();
+  }
+
+  void navigateHome() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.to(const HomeView(), transition: Transition.native, duration: kTransitionDuration);
+    });
   }
 }
