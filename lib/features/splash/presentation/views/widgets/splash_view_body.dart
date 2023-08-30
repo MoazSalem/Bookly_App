@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/features/constants.dart';
-import 'package:bookly/features/home/presentation/views/home_body.dart';
+import 'package:bookly/features/home/presentation/views/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
