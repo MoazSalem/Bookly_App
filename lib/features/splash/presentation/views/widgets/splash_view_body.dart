@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:bookly/core/utils/assets.dart';
-import 'package:bookly/features/constants.dart';
-import 'package:bookly/features/home/presentation/views/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -60,7 +57,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
 
   void navigateHome() {
     Future.delayed(const Duration(seconds: 2), () {
-      Get.to(() => const HomeView(), transition: Transition.native, duration: kTransitionDuration);
+      Navigator.pushReplacementNamed(context, '/home');
     });
   }
 }
