@@ -1,5 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly/features/constants.dart';
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({Key? key}) : super(key: key);
@@ -41,8 +42,8 @@ class FeaturedListView extends StatelessWidget {
                         child: Icon(Icons.play_arrow, color: Colors.white, size: 16),
                       ).frosted(
                           blur: 3.0,
-                          frostColor: Colors.black,
-                          borderRadius: BorderRadius.circular(30)),
+                          frostColor: kPrimaryColor.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(kBorderRadius)),
                     )
                   ],
                 )),

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class Styles {
   static const titleMedium18 = TextStyle(
     fontSize: 18,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     letterSpacing: 0.1,
   );
 
@@ -14,7 +14,7 @@ class Styles {
   );
 
   static const titleMedium20 =
-      TextStyle(fontSize: 20, fontWeight: FontWeight.w500, fontFamily: "GT Sectra Fine");
+      TextStyle(fontSize: 20, fontWeight: FontWeight.w600, fontFamily: "GT Sectra Fine");
 
   static const titleSmall14 = TextStyle(
     fontSize: 14,

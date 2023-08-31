@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/features/constants.dart';
 
 class BestSellerItem extends StatelessWidget {
   const BestSellerItem({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: kSidePadding, vertical: 6),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -44,14 +45,15 @@ class BestSellerItem extends StatelessWidget {
                 ),
                 Text(
                   "J.K Rowling",
-                  style: Styles.titleSmall14.copyWith(color: Colors.grey),
+                  style: Styles.titleSmall14.copyWith(color: Colors.grey, fontFamily: ""),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .6,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("19.99 \$", style: Styles.titleMedium18),
+                      Text("19.99 \$",
+                          style: Styles.titleMedium18.copyWith(fontWeight: FontWeight.w500)),
                       Row(
                         children: [
                           Icon(
