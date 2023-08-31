@@ -35,9 +35,11 @@ class BestSellerItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .6,
-                  child: const Text(
+                  child: Text(
                     "Harry Potter and the Philosopher's Stone",
-                    style: Styles.titleMedium18,
+                    style: Styles.titleMedium20,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Text(
