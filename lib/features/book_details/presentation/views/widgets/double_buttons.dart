@@ -33,7 +33,7 @@ class DoubleButtons extends StatelessWidget {
           ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xffef8262),
+                backgroundColor: const Color(0xffef8262),
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(16), bottomRight: Radius.circular(16)),
