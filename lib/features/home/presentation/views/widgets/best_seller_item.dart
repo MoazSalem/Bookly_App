@@ -60,7 +60,7 @@ class BestSellerItem extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.star_rate_rounded,
-                              color: Colors.amber,
+                              color: Color(0xffffdd4f),
                               size: 22,
                             ),
                             Text("4.8", style: Styles.titleSmall16),
