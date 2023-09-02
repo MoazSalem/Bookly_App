@@ -40,7 +40,7 @@ class NavBar extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SvgPicture.asset(AssetsData.books,
-                        height: kIconsSize,
+                        height: kIconsHeight,
                         semanticsLabel: 'books icon',
                         colorFilter: ColorFilter.mode(
                             index == 0 ? Colors.white : Colors.white54, BlendMode.srcIn)),
@@ -52,7 +52,7 @@ class NavBar extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SvgPicture.asset(AssetsData.bookmarked,
-                        height: kIconsSize,
+                        height: kIconsHeight,
                         semanticsLabel: 'bookmarked icon',
                         colorFilter: ColorFilter.mode(
                             index == 1 ? Colors.white : Colors.white54, BlendMode.srcIn)),
@@ -64,7 +64,7 @@ class NavBar extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: SvgPicture.asset(AssetsData.audio,
-                        height: kIconsSize,
+                        height: kIconsHeight,
                         semanticsLabel: 'audio icon',
                         colorFilter: ColorFilter.mode(
                             index == 2 ? Colors.white : Colors.white54, BlendMode.srcIn)),

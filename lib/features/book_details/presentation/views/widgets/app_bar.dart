@@ -17,7 +17,7 @@ class AppBarDetails extends StatelessWidget {
             icon: const Icon(
               Icons.close,
               color: Colors.white,
-              size: 32.0,
+              size: kIconsSize,
             ),
           ),
           IconButton(

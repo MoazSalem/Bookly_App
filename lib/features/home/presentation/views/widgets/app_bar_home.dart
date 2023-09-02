@@ -14,9 +14,9 @@ class AppBarHome extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SvgPicture.asset(AssetsData.logo, height: kIconsSize, semanticsLabel: 'bookly logo'),
+          SvgPicture.asset(AssetsData.logo, height: kIconsHeight, semanticsLabel: 'bookly logo'),
           InkWell(
-            onTap: () {},
+            onTap: () => Navigator.pushNamed(context, '/search'),
             borderRadius: BorderRadius.circular(kBorderRadius),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
