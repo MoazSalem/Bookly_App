@@ -7,7 +7,7 @@ class AppBarDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kSidePadding, vertical: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: kSidePadding, vertical: 24.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
