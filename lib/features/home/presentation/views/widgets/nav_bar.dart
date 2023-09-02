@@ -7,7 +7,7 @@ import 'package:bookly/features/constants.dart';
 
 class NavBar extends StatelessWidget {
   final int index;
-  const NavBar({Key? key, required this.index}) : super(key: key);
+  const NavBar({Key? key, this.index = 0}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
