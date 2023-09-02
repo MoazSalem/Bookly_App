@@ -2,6 +2,7 @@ import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'features/book_details/presentation/views/book_details_view.dart';
 import 'features/constants.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
@@ -35,6 +36,7 @@ class BooklyApp extends StatelessWidget {
             routes: {
               '/': (context) => const SplashView(),
               '/home': (context) => const HomeView(),
+              '/book_details': (context) => const BookDetailsView(),
             }));
   }
 }
