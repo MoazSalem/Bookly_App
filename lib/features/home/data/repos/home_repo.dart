@@ -3,6 +3,6 @@ import 'package:dartz/dartz.dart';
 import '../models/book_model/BookModel.dart';
 
 abstract class HomeRepo {
-  Either<Failure, List<BookModel>> fetchBestSellerBooks();
-  Either<Failure, List<BookModel>> fetchFeaturedBooks();
+  Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks();
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks();
 }
