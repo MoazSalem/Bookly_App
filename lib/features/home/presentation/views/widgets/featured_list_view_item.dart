@@ -1,5 +1,6 @@
 import 'package:blur/blur.dart';
 import 'package:bookly/features/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
@@ -22,14 +23,17 @@ class FeaturedListViewItem extends StatelessWidget {
         children: [
           AspectRatio(
             aspectRatio: 0.65,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-                image: DecorationImage(
-                  image: NetworkImage(imageUrl),
-                  fit: BoxFit.fill,
-                ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: imageUrl,
+                placeholder: (context, url) => Center(
+                    child: SizedBox(
+                        height: playButton ? 100 : 50,
+                        width: playButton ? 100 : 50,
+                        child: const CircularProgressIndicator())),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
           ),

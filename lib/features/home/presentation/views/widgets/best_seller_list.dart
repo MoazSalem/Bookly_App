@@ -18,6 +18,7 @@ class BestSellerList extends StatelessWidget {
         }
         if (state is BestSellerSuccess) {
           return ListView.builder(
+              shrinkWrap: true,
               itemCount: state.books.length,
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.all(0),

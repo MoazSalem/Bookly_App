@@ -1,4 +1,5 @@
 import 'package:bookly/features/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';
 
@@ -14,15 +15,15 @@ class Details extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width * 0.45,
           child: AspectRatio(
             aspectRatio: 0.65,
-            child: Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(kBorderRadius)),
-                image: DecorationImage(
-                  image: NetworkImage(
-                      "https://books.google.com/books/content?id=G6lHXQWOx6sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"),
-                  fit: BoxFit.fill,
-                ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(kBorderRadius),
+              child: CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl:
+                    "https://books.google.com/books/content?id=G6lHXQWOx6sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                placeholder: (context, url) => const Center(
+                    child: SizedBox(height: 100,width: 100, child: CircularProgressIndicator())),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
           ),
