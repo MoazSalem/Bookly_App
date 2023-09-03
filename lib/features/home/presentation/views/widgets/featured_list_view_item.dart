@@ -3,10 +3,12 @@ import 'package:bookly/features/constants.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
+  final String imageUrl;
   final int index;
   final bool playButton;
   const FeaturedListViewItem({
     super.key,
+    required this.imageUrl,
     required this.index,
     this.playButton = true,
   });
@@ -21,12 +23,11 @@ class FeaturedListViewItem extends StatelessWidget {
           AspectRatio(
             aspectRatio: 0.65,
             child: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(12)),
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
                 image: DecorationImage(
-                  image: NetworkImage(
-                      "https://books.google.com/books/content?id=G6lHXQWOx6sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"),
+                  image: NetworkImage(imageUrl),
                   fit: BoxFit.fill,
                 ),
               ),

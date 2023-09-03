@@ -20,6 +20,8 @@ class SimilarListView extends StatelessWidget {
                   child: FeaturedListViewItem(
                     index: 0,
                     playButton: false,
+                    imageUrl:
+                        "https://books.google.com/books/content?id=G6lHXQWOx6sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
                   ),
                 ));
           }),

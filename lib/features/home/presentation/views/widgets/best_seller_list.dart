@@ -18,10 +18,13 @@ class BestSellerList extends StatelessWidget {
         }
         if (state is BestSellerSuccess) {
           return ListView.builder(
+              itemCount: state.books.length,
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.all(0),
               scrollDirection: Axis.vertical,
-              itemBuilder: (context, index) => const BestSellerItem());
+              itemBuilder: (context, index) => BestSellerItem(
+                    book: state.books[index],
+                  ));
         } else {
           return const Center(
             child: CircularProgressIndicator(),

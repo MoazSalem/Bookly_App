@@ -21,12 +21,14 @@ class FeaturedListView extends StatelessWidget {
             child: SizedBox(
               height: MediaQuery.of(context).size.height * .3,
               child: ListView.builder(
+                  itemCount: state.books.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 8.0, vertical: index == 0 ? 0 : 12.0),
                         child: FeaturedListViewItem(
                           index: index,
+                          imageUrl: state.books[index].volumeInfo!.imageLinks?.thumbnail ?? "",
                         ),
                       )),
             ),

@@ -29,7 +29,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       List<BookModel> books = [];
       books = await apiService.getBooks(
-          query: 'Science-fiction', filtering: 'free-ebooks', sorting: 'relevance');
+          query: 'Programming', filtering: 'free-ebooks', sorting: 'relevance');
       return right(books);
     } catch (e) {
       if (e is DioException) {
