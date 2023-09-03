@@ -6,11 +6,13 @@ import 'package:bookly/core/utils/api_service.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl extends HomeRepo {
+  final ApiService apiService;
+
+  HomeRepoImpl(this.apiService);
   @override
   Future<Either<Failure, List<BookModel>>> fetchBestSellerBooks() async {
     try {
       List<BookModel> books = [];
-      ApiService apiService = ApiService();
       books = await apiService.getBooks(
           query: 'Comics', filtering: 'free-ebooks', sorting: 'relevance');
       return right(books);
@@ -26,7 +28,6 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       List<BookModel> books = [];
-      ApiService apiService = ApiService();
       books = await apiService.getBooks(
           query: 'Science-fiction', filtering: 'free-ebooks', sorting: 'relevance');
       return right(books);

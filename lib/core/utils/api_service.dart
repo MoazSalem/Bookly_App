@@ -3,7 +3,9 @@ import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
 
 class ApiService {
   final _baseUrl = 'https://www.googleapis.com/books/v1';
-  final Dio _dio = Dio();
+  final Dio _dio;
+
+  ApiService(this._dio);
 
   Future<List<BookModel>> getBooks(
       {required String query,
