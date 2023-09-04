@@ -2,7 +2,7 @@ import 'package:blur/blur.dart';
 import 'package:bookly/features/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly/core/models/book_model/BookModel.dart';
+import 'package:bookly/core/models/book_model/book_model.dart';
 import '../../../../book_details/data/screen_arguments.dart';
 import 'featured_list_view_item_loading.dart';
 

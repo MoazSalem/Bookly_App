@@ -1,4 +1,4 @@
-import 'package:bookly/core/models/book_model/BookModel.dart';
+import 'package:bookly/core/models/book_model/book_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';

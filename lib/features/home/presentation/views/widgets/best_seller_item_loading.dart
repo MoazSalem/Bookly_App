@@ -1,10 +1,6 @@
-import 'package:bookly/core/models/book_model/BookModel.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/constants.dart';
 import 'package:shimmer/shimmer.dart';
-import '../../../../book_details/data/screen_arguments.dart';
 
 class BestSellerItemLoading extends StatelessWidget {
   const BestSellerItemLoading({Key? key}) : super(key: key);

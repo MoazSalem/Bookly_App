@@ -1,7 +1,7 @@
-import 'VolumeInfo.dart';
-import 'SaleInfo.dart';
-import 'AccessInfo.dart';
-import 'SearchInfo.dart';
+import 'volume_info.dart';
+import 'sale_info.dart';
+import 'access_info.dart';
+import 'search_info.dart';
 
 /// kind : "books#volume"
 /// id : "u13hVoYVZa8C"

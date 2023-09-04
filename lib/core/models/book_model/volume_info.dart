@@ -1,7 +1,7 @@
-import 'IndustryIdentifiers.dart';
-import 'ReadingModes.dart';
-import 'PanelizationSummary.dart';
-import 'ImageLinks.dart';
+import 'industry_identifiers.dart';
+import 'reading_modes.dart';
+import 'panelization_summary.dart';
+import 'image_links.dart';
 
 /// title : "Planning Extreme Programming"
 /// authors : ["Kent Beck","Martin Fowler"]

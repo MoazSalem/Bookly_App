@@ -1,7 +1,7 @@
 import 'package:bookly/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bookly/core/models/book_model/BookModel.dart';
+import 'package:bookly/core/models/book_model/book_model.dart';
 import 'package:bookly/core/utils/api_service.dart';
 part 'search_state.dart';
 
@@ -11,7 +11,7 @@ class SearchCubit extends Cubit<SearchState> {
   Future<void> getBooks({required String query}) async {
     emit(SearchLoading());
     try {
-      final books = await getIt.get<ApiService>().getBooks(query: query);
+      final books = await getIt.get<ApiService>().getBooks(query: query,maxResults: 12);
       emit(SearchSuccess(books));
     } catch (e) {
       emit(SearchFailed(e.toString()));

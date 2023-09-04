@@ -1,21 +1,22 @@
-import 'package:bookly/core/models/book_model/BookModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../data/repos/similar_repo.dart';
+import 'package:bookly/core/models/book_model/book_model.dart';
+import 'package:bookly/core/utils/api_service.dart';
+import 'package:bookly/core/utils/service_locator.dart';
 
 part 'similar_state.dart';
 
 class SimilarCubit extends Cubit<SimilarState> {
-  SimilarCubit(this.similarRepo) : super(SimilarInitial());
-  final SimilarRepo similarRepo;
+  SimilarCubit() : super(SimilarInitial());
 
-  Future<void> fetchSimilarBooks({required String category}) async {
+  Future<void> fetchSimilarBooks({required String author}) async {
     emit(SimilarLoading());
-    final result = await similarRepo.fetchBestSimilarBooks(category: category);
-    result.fold(
-      (failure) => emit(SimilarFailure(failure.message)),
-      (books) => emit(SimilarSuccess(books)),
-    );
+    try {
+      final books =
+          await getIt.get<ApiService>().getBooks(query: "inauthor:$author", maxResults: 12);
+      emit(SimilarSuccess(books));
+    } catch (e) {
+      emit(SimilarFailure(e.toString()));
+    }
   }
 }

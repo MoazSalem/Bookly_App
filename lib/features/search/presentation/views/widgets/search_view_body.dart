@@ -67,11 +67,11 @@ class _SearchViewBodyState extends State<SearchViewBody> {
             if (state is SearchFailed)
               SliverToBoxAdapter(child: Center(child: Text(state.message))),
             if (state is SearchInitial)
-              const SliverFillRemaining(
+              const SliverToBoxAdapter(
                 child: BestSellerList(),
               ),
             if (state is SearchLoading)
-              SliverFillRemaining(
+              SliverToBoxAdapter(
                   child: ListView.builder(
                       shrinkWrap: true,
                       itemCount: 10,
