@@ -1,16 +1,15 @@
+import 'package:bookly/features/home/presentation/view_model/home_cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/home_view_body.dart';
-import 'widgets/audio_books_view_body.dart';
-import 'widgets/bookmarked_view_body.dart';
-import 'widgets/profile_view_body.dart';
+import 'widgets/placeholder_view_body.dart';
 import 'widgets/nav_bar.dart';
 
-int _pageIndex = 0;
 List<Widget> _pageList = [
   const HomeViewBody(),
-  const AudioBooksViewBody(),
-  const BookmarkedViewBody(),
-  const ProfileViewBody(),
+  const PlaceHolderViewBody(),
+  const PlaceHolderViewBody(),
+  const PlaceHolderViewBody(),
 ];
 
 class HomeView extends StatefulWidget {
@@ -23,14 +22,17 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        // TODO: update with a state management solution
-        _pageList[_pageIndex],
-        NavBar(index: _pageIndex),
-      ],
-    ));
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return Scaffold(
+            body: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                _pageList[state.index],
+                NavBar(index: state.index),
+              ],
+            ));
+      },
+    );
   }
 }

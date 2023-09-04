@@ -1,6 +1,8 @@
 import 'package:blur/blur.dart';
+import 'package:bookly/features/home/presentation/view_model/home_cubit/home_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/features/constants.dart';
@@ -35,7 +37,7 @@ class NavBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () => context.read<HomeCubit>().switchPage(0),
                   borderRadius: BorderRadius.circular(kBorderRadius),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -47,7 +49,7 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => context.read<HomeCubit>().switchPage(1),
                   borderRadius: BorderRadius.circular(kBorderRadius),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -59,7 +61,7 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => context.read<HomeCubit>().switchPage(2),
                   borderRadius: BorderRadius.circular(kBorderRadius),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -71,7 +73,7 @@ class NavBar extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () => context.read<HomeCubit>().switchPage(3),
                   borderRadius: BorderRadius.circular(kBorderRadius),
                   child: Icon(
                     CupertinoIcons.person_circle_fill,

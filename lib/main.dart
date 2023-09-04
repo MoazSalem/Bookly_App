@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'core/utils/service_locator.dart';
 import 'features/constants.dart';
+import 'features/home/presentation/view_model/home_cubit/home_cubit.dart';
 import 'features/home/presentation/views/home_view.dart';
 import 'features/book_details/presentation/views/book_details_view.dart';
 import 'features/search/presentation/views/search_view.dart';
@@ -36,7 +37,10 @@ class BooklyApp extends StatelessWidget {
                     BestSellerCubit(getIt.get<HomeRepoImpl>())..fetchBestSellerBooks()),
             BlocProvider(
                 create: (context) =>
-                    FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks())
+                    FeaturedBooksCubit(getIt.get<HomeRepoImpl>())..fetchFeaturedBooks()),
+            BlocProvider(
+              create: (context) => HomeCubit(),
+            )
           ],
           child: MaterialApp(
               debugShowCheckedModeBanner: false,
