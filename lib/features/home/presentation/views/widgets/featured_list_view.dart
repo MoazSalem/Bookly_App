@@ -2,6 +2,7 @@ import 'package:bookly/features/home/presentation/view_model/featured_books_cubi
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'featured_list_view_item.dart';
+import 'featured_list_view_item_loading.dart';
 
 class FeaturedListView extends StatelessWidget {
   const FeaturedListView({Key? key}) : super(key: key);
@@ -34,8 +35,18 @@ class FeaturedListView extends StatelessWidget {
             ),
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return Padding(
+            padding: const EdgeInsets.only(left: 18.0, right: 18.0, bottom: 40.0),
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * .3,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) => Padding(
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 8.0, vertical: index == 0 ? 0 : 12.0),
+                    child: const FeaturedListViewItemLoading(),
+                  )),
+            ),
           );
         }
       },

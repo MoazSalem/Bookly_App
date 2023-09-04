@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/constants.dart';
+import 'package:shimmer/shimmer.dart';
 import '../../../../book_details/data/screen_arguments.dart';
 
 class BestSellerItem extends StatelessWidget {
@@ -26,9 +27,16 @@ class BestSellerItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: CachedNetworkImage(
                     fit: BoxFit.fill,
-                    imageUrl: book.volumeInfo!.imageLinks?.thumbnail ?? "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
-                    placeholder: (context, url) => const Center(
-                        child: SizedBox(height: 50, width: 50, child: CircularProgressIndicator())),
+                    imageUrl: book.volumeInfo!.imageLinks?.thumbnail ??
+                        "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
+                    placeholder: (context, url) => Shimmer.fromColors(
+                        baseColor: Colors.grey,
+                        highlightColor: Colors.white,
+                        child: Container(
+                          width: 128,
+                          height: 192,
+                          color: Colors.white24,
+                        )),
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
                 ),

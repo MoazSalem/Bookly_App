@@ -13,6 +13,7 @@ import 'features/search/presentation/views/search_view.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   getItSetup();
   runApp(const BooklyApp());
 }

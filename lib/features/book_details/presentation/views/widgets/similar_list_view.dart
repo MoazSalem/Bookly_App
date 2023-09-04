@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bookly/features/constants.dart';
 import 'package:bookly/features/home/presentation/views/widgets/featured_list_view_item.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../home/presentation/views/widgets/featured_list_view_item_loading.dart';
 import '../../view_model/similar_cubit/similar_cubit.dart';
 
 class SimilarListView extends StatelessWidget {
@@ -36,8 +37,21 @@ class SimilarListView extends StatelessWidget {
                 }),
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
+          return SizedBox(
+            height: 140,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: 6,
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: kSidePadding),
+              itemBuilder: (context, index) {
+                return const SizedBox(
+                    height: 140,
+                    child: Padding(
+                        padding: EdgeInsets.all(6.0),
+                        child: FeaturedListViewItemLoading()));
+              },
+            ),
           );
         }
       },

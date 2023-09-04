@@ -22,7 +22,8 @@ class Details extends StatelessWidget {
               borderRadius: BorderRadius.circular(kBorderRadius),
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
-                imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
+                imageUrl: book.volumeInfo?.imageLinks?.thumbnail ??
+                    "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
                 placeholder: (context, url) => const Center(
                     child: SizedBox(height: 100, width: 100, child: CircularProgressIndicator())),
                 errorWidget: (context, url, error) => const Icon(Icons.error),

@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/core/models/book_model/BookModel.dart';
 import '../../../../book_details/data/screen_arguments.dart';
+import 'featured_list_view_item_loading.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
   final BookModel book;
@@ -30,11 +31,7 @@ class FeaturedListViewItem extends StatelessWidget {
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
                 imageUrl: book.volumeInfo!.imageLinks?.thumbnail ?? "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
-                placeholder: (context, url) => Center(
-                    child: SizedBox(
-                        height: playButton ? 100 : 50,
-                        width: playButton ? 100 : 50,
-                        child: const CircularProgressIndicator())),
+                placeholder: (context, url) => const FeaturedListViewItemLoading(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),

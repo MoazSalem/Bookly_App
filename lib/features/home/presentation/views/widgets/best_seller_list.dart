@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'best_seller_item.dart';
+import 'best_seller_item_loading.dart';
 
 class BestSellerList extends StatelessWidget {
   const BestSellerList({Key? key}) : super(key: key);
@@ -27,9 +28,13 @@ class BestSellerList extends StatelessWidget {
                     book: state.books[index],
                   ));
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return ListView.builder(
+              shrinkWrap: true,
+              itemCount: 6,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.all(0),
+              scrollDirection: Axis.vertical,
+              itemBuilder: (context, index) => const BestSellerItemLoading());
         }
       },
     );
