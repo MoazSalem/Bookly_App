@@ -56,9 +56,12 @@ class BestSellerItem extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Text(
-                    book.volumeInfo!.authors![0],
-                    style: Styles.titleSmall14.copyWith(color: Colors.grey, fontFamily: ""),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .6,
+                    child: Text(
+                      book.volumeInfo!.authors!.isNotEmpty? book.volumeInfo!.authors!.first : "Unknown Author",
+                      style: Styles.titleSmall14.copyWith(color: Colors.grey, fontFamily: ""),
+                    ),
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .6,
