@@ -67,7 +67,7 @@ class Details extends StatelessWidget {
                     width: 5,
                   ),
                   Text(
-                    "${book.volumeInfo!.ratingsCount!}",
+                    "(${book.volumeInfo!.ratingsCount!})",
                     style: Styles.titleSmall16
                         .copyWith(color: Colors.grey, fontWeight: FontWeight.w500),
                   )

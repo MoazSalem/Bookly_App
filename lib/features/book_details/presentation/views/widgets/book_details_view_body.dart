@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:bookly/features/constants.dart';
 import 'package:bookly/core/models/book_model/BookModel.dart';
-import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'app_bar.dart';
 import 'details.dart';
@@ -25,7 +25,7 @@ class BookDetailsViewBody extends StatelessWidget {
             style: Styles.titleSmall16,
           ),
         ),
-        // SimilarListView(bookCategory: book.volumeInfo?.categories?[0] ?? "comic"),
+        SimilarListView(),
         const SizedBox(
           height: 20.0,
         )
