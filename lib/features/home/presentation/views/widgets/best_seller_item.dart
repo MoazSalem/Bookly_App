@@ -43,7 +43,7 @@ class BestSellerItem extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 30.0),
+              padding: const EdgeInsets.only(left: 20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

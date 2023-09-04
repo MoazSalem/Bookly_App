@@ -23,15 +23,17 @@ class DoubleButtons extends StatelessWidget {
                 ),
               ),
               child: SizedBox(
-                width: MediaQuery.sizeOf(context).width * 0.26,
-                height: MediaQuery.sizeOf(context).width * 0.12,
+                width: MediaQuery.sizeOf(context).width * 0.3,
+                height: MediaQuery.sizeOf(context).width * 0.15,
                 child: Center(
-                  child: Text(
-                    book.saleInfo?.listPrice != null
-                        ? "${book.saleInfo!.listPrice!.amount} ${book.saleInfo!.listPrice!.currencyCode}"
-                        : "Free",
-                    style:
-                        const TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
+                  child: FittedBox(
+                    child: Text(
+                      book.saleInfo?.listPrice != null
+                          ? "${book.saleInfo!.listPrice!.amount} ${book.saleInfo!.listPrice!.currencyCode}"
+                          : "Free",
+                      style: const TextStyle(
+                          color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ),
               )),
@@ -45,13 +47,15 @@ class DoubleButtons extends StatelessWidget {
                 ),
               ),
               child: SizedBox(
-                width: MediaQuery.sizeOf(context).width * 0.26,
-                height: MediaQuery.sizeOf(context).width * 0.12,
+                width: MediaQuery.sizeOf(context).width * 0.3,
+                height: MediaQuery.sizeOf(context).width * 0.15,
                 child: const Center(
-                  child: Text(
-                    "Free Preview",
-                    style:
-                        TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+                  child: FittedBox(
+                    child: Text(
+                      "Free Preview",
+                      style:
+                          TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               )),

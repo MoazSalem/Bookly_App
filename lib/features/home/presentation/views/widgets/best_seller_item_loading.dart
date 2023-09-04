@@ -30,7 +30,7 @@ class BestSellerItemLoading extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  left: 30.0,
+                  left: 20.0,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
