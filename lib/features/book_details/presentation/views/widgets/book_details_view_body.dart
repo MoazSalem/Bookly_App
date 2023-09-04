@@ -21,7 +21,7 @@ class BookDetailsViewBody extends StatelessWidget {
         const Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: kSidePadding),
           child: Text(
-            "You can also like",
+            "You might also like",
             style: Styles.titleSmall16,
           ),
         ),
