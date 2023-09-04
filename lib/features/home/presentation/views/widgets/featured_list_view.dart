@@ -28,7 +28,7 @@ class FeaturedListView extends StatelessWidget {
                             EdgeInsets.symmetric(horizontal: 8.0, vertical: index == 0 ? 0 : 12.0),
                         child: FeaturedListViewItem(
                           index: index,
-                          imageUrl: state.books[index].volumeInfo!.imageLinks?.thumbnail ?? "",
+                          book: state.books[index],
                         ),
                       )),
             ),

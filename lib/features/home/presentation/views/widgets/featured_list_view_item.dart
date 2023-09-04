@@ -2,14 +2,16 @@ import 'package:blur/blur.dart';
 import 'package:bookly/features/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
+import '../../../../book_details/data/screen_arguments.dart';
 
 class FeaturedListViewItem extends StatelessWidget {
-  final String imageUrl;
+  final BookModel book;
   final int index;
   final bool playButton;
   const FeaturedListViewItem({
     super.key,
-    required this.imageUrl,
+    required this.book,
     required this.index,
     this.playButton = true,
   });
@@ -17,7 +19,7 @@ class FeaturedListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/book_details'),
+      onTap: () => Navigator.pushNamed(context, '/book_details', arguments: ScreenArguments(book)),
       child: Stack(
         alignment: Alignment.bottomRight,
         children: [
@@ -27,7 +29,7 @@ class FeaturedListViewItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
-                imageUrl: imageUrl,
+                imageUrl: book.volumeInfo!.imageLinks?.thumbnail ?? "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
                 placeholder: (context, url) => Center(
                     child: SizedBox(
                         height: playButton ? 100 : 50,

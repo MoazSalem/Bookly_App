@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
 
 class ApiService {
   final _baseUrl = 'https://www.googleapis.com/books/v1';

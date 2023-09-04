@@ -2,9 +2,12 @@ import 'package:bookly/features/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
+import 'double_buttons.dart';
 
 class Details extends StatelessWidget {
-  const Details({Key? key}) : super(key: key);
+  final BookModel book;
+  const Details({Key? key, required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +22,9 @@ class Details extends StatelessWidget {
               borderRadius: BorderRadius.circular(kBorderRadius),
               child: CachedNetworkImage(
                 fit: BoxFit.fill,
-                imageUrl:
-                    "https://books.google.com/books/content?id=G6lHXQWOx6sC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                imageUrl: book.volumeInfo?.imageLinks?.thumbnail ?? "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
                 placeholder: (context, url) => const Center(
-                    child: SizedBox(height: 100,width: 100, child: CircularProgressIndicator())),
+                    child: SizedBox(height: 100, width: 100, child: CircularProgressIndicator())),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
@@ -33,7 +35,7 @@ class Details extends StatelessWidget {
           child: SizedBox(
             width: MediaQuery.of(context).size.width * .8,
             child: Text(
-              "Harry Potter and the Philosopher's Stone",
+              book.volumeInfo?.title ?? "No Title",
               style: Styles.titleLarge30,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -42,7 +44,7 @@ class Details extends StatelessWidget {
           ),
         ),
         Text(
-          "J.K Rowling",
+          book.volumeInfo?.authors?[0] ?? "No Author",
           style: Styles.titleMedium18
               .copyWith(color: Colors.grey, fontFamily: "", fontWeight: FontWeight.w500),
           textAlign: TextAlign.center,
@@ -50,24 +52,28 @@ class Details extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.star_rate_rounded,
-              color: Color(0xffffdd4f),
-              size: 26.0,
-            ),
-            Text("4.8", style: Styles.titleMedium18),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              "(2.3k)",
-              style: Styles.titleSmall16.copyWith(color: Colors.grey, fontWeight: FontWeight.w500),
-            )
-          ],
-        )
+        book.volumeInfo?.averageRating == null
+            ? const Text("Not Rated Yet", style: Styles.titleMedium18)
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.star_rate_rounded,
+                    color: Color(0xffffdd4f),
+                    size: 26.0,
+                  ),
+                  Text("${book.volumeInfo!.averageRating!}", style: Styles.titleMedium18),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    "${book.volumeInfo!.ratingsCount!}",
+                    style: Styles.titleSmall16
+                        .copyWith(color: Colors.grey, fontWeight: FontWeight.w500),
+                  )
+                ],
+              ),
+        DoubleButtons(previewUrl: book.volumeInfo?.previewLink ?? ""),
       ],
     );
   }

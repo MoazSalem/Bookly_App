@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class DoubleButtons extends StatelessWidget {
-  const DoubleButtons({Key? key}) : super(key: key);
+  final String previewUrl;
+  const DoubleButtons({Key? key, required this.previewUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class DoubleButtons extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).width * 0.12,
                 child: const Center(
                   child: Text(
-                    "19.99\$",
+                    "Free",
                     style:
                         TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
                   ),

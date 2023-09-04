@@ -1,8 +1,9 @@
-import 'package:bookly/features/home/data/models/book_model/BookModel.dart';
+import 'package:bookly/core/models/book_model/BookModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/constants.dart';
+import '../../../../book_details/data/screen_arguments.dart';
 
 class BestSellerItem extends StatelessWidget {
   final BookModel book;
@@ -11,7 +12,7 @@ class BestSellerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/book_details'),
+      onTap: () => Navigator.pushNamed(context, '/book_details', arguments: ScreenArguments(book)),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kSidePadding, vertical: 6),
         child: Row(
@@ -25,9 +26,9 @@ class BestSellerItem extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: CachedNetworkImage(
                     fit: BoxFit.fill,
-                    imageUrl: book.volumeInfo!.imageLinks?.thumbnail ?? "",
+                    imageUrl: book.volumeInfo!.imageLinks?.thumbnail ?? "https://raw.githubusercontent.com/julien-gargot/images-placeholder/master/placeholder-portrait.png",
                     placeholder: (context, url) => const Center(
-                        child: SizedBox(height: 50,width: 50, child: CircularProgressIndicator())),
+                        child: SizedBox(height: 50, width: 50, child: CircularProgressIndicator())),
                     errorWidget: (context, url, error) => const Icon(Icons.error),
                   ),
                 ),
