@@ -17,7 +17,7 @@ class PlaceHolderViewBody extends StatelessWidget {
               SizedBox(
                 height: 300,
               ),
-              Center(child: Text("This Page is not Implemented yet"))
+              Center(child: Text("This Page is not Implemented"))
             ],
           ),
         ),

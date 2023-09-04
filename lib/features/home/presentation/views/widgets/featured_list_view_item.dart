@@ -36,7 +36,7 @@ class FeaturedListViewItem extends StatelessWidget {
               ),
             ),
           ),
-          playButton
+          playButton && MediaQuery.of(context).size.width * .15 < 100
               ? Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: index == 0 ? 8 : 18),
                   child: const CircleAvatar(

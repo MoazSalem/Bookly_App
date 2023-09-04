@@ -40,7 +40,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
                 children: [
                   SvgPicture.asset(AssetsData.logo, height: 50, semanticsLabel: 'bookly logo'),
                   const SizedBox(height: 10),
-                  Text('Read Free Books',
+                  Text('Find Your New Favourite Book',
                       style: Theme.of(context).textTheme.bodyMedium, textAlign: TextAlign.center),
                 ],
               ),
