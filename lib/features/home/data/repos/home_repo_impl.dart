@@ -14,7 +14,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       List<BookModel> books = [];
       books = await apiService.getBooks(
-          query: 'inauthor:george r. r. martin', filtering: 'free-ebooks', sorting: 'relevance');
+          query: 'inauthor:george r. r. martin', sorting: 'relevance');
       return right(books);
     } catch (e) {
       if (e is DioException) {
@@ -29,7 +29,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       List<BookModel> books = [];
       books = await apiService.getBooks(
-          query: 'inauthor:rowling', filtering: 'free-ebooks', sorting: 'newest');
+          query: 'inauthor:rowling', sorting: 'newest');
       return right(books);
     } catch (e) {
       if (e is DioException) {

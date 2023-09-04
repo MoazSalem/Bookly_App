@@ -68,7 +68,7 @@ class BestSellerItem extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Free",
+                        Text(book.saleInfo?.listPrice != null ? "${book.saleInfo!.listPrice!.amount} ${book.saleInfo!.listPrice!.currencyCode}" : "Free",
                             style: Styles.titleMedium18.copyWith(fontWeight: FontWeight.w500)),
                         book.volumeInfo!.averageRating == null
                             ? const Text("Not Rated")

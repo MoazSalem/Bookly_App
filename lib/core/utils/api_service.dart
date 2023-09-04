@@ -9,13 +9,11 @@ class ApiService {
 
   Future<List<BookModel>> getBooks(
       {required String query,
-      String filtering = 'free-ebooks',
       int maxResults = 40,
       String sorting = 'relevance'}) async {
     List<BookModel> books = [];
     final response = await _dio.get('$_baseUrl/volumes', queryParameters: {
       'q': query,
-      'Filtering': filtering,
       'Sorting': sorting,
       'Pagination': "maxResults=$maxResults",
     });

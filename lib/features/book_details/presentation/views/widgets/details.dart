@@ -74,7 +74,9 @@ class Details extends StatelessWidget {
                   )
                 ],
               ),
-        DoubleButtons(previewUrl: book.volumeInfo?.previewLink ?? ""),
+        DoubleButtons(
+          book: book,
+        ),
       ],
     );
   }

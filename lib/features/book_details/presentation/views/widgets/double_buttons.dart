@@ -1,8 +1,10 @@
+import 'package:bookly/core/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DoubleButtons extends StatelessWidget {
-  final String previewUrl;
-  const DoubleButtons({Key? key, required this.previewUrl}) : super(key: key);
+  final BookModel book;
+  const DoubleButtons({Key? key, required this.book}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class DoubleButtons extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _launchUrl(Uri.parse(book.volumeInfo?.canonicalVolumeLink ?? "")),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                 shape: const RoundedRectangleBorder(
@@ -23,16 +25,18 @@ class DoubleButtons extends StatelessWidget {
               child: SizedBox(
                 width: MediaQuery.sizeOf(context).width * 0.26,
                 height: MediaQuery.sizeOf(context).width * 0.12,
-                child: const Center(
+                child: Center(
                   child: Text(
-                    "Free",
+                    book.saleInfo?.listPrice != null
+                        ? "${book.saleInfo!.listPrice!.amount} ${book.saleInfo!.listPrice!.currencyCode}"
+                        : "Free",
                     style:
-                        TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
+                        const TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500),
                   ),
                 ),
               )),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () => _launchUrl(Uri.parse(book.volumeInfo?.previewLink ?? "")),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xffef8262),
                 shape: const RoundedRectangleBorder(
@@ -54,5 +58,11 @@ class DoubleButtons extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+Future<void> _launchUrl(url) async {
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch $url');
   }
 }
